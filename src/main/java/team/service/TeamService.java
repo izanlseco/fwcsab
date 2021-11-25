@@ -7,7 +7,7 @@ import team.model.Team;
 import java.util.*;
 
 @Slf4j
-public class TeamService {
+public class TeamService implements ITeamService {
 
     final ArrayList<Match> matchSummary = new ArrayList<>();
 
