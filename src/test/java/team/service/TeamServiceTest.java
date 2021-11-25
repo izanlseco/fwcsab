@@ -14,6 +14,10 @@ public class TeamServiceTest {
 
     private final static int FIRST_INDEX = 0;
     private final static int LAST_INDEX = 5;
+    private final static String HOME_TEAM_NAME = "homeTeam.name";
+    private final static String HOME_TEAM_SCORE = "homeTeam.score";
+    private final static String AWAY_TEAM_NAME = "awayTeam.name";
+    private final static String AWAY_TEAM_SCORE = "awayTeam.score";
     private TeamService teamService;
 
     @BeforeEach
@@ -58,7 +62,7 @@ public class TeamServiceTest {
         final ArrayList<Match> response = this.teamService.summary();
 
         assertThat(response.get(FIRST_INDEX))
-                .extracting("homeTeam.name", "homeTeam.score", "awayTeam.name", "awayTeam.score")
+                .extracting(HOME_TEAM_NAME, HOME_TEAM_SCORE, AWAY_TEAM_NAME, AWAY_TEAM_SCORE)
                 .contains("Egypt", 0, "South Africa", 3);
     }
 
@@ -74,10 +78,10 @@ public class TeamServiceTest {
         final ArrayList<Match> response = this.teamService.summary();
 
         assertThat(response.get(FIRST_INDEX))
-                .extracting("homeTeam.name", "homeTeam.score", "awayTeam.name", "awayTeam.score")
+                .extracting(HOME_TEAM_NAME, HOME_TEAM_SCORE, AWAY_TEAM_NAME, AWAY_TEAM_SCORE)
                 .contains("Brazil", 5, "Russia", 5);
         assertThat(response.get(LAST_INDEX))
-                .extracting("homeTeam.name", "homeTeam.score", "awayTeam.name", "awayTeam.score")
+                .extracting(HOME_TEAM_NAME, HOME_TEAM_SCORE, AWAY_TEAM_NAME, AWAY_TEAM_SCORE)
                 .contains("Switzerland", 2, "Romania", 2);
     }
 }
