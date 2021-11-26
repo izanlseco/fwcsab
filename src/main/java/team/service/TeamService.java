@@ -12,23 +12,22 @@ public class TeamService implements ITeamService {
     final ArrayList<Match> matchSummary = new ArrayList<>();
 
     public boolean create(Team homeTeam, Team awayTeam) {
-        if (homeTeam.getName() == null || awayTeam.getName() == null) {
-            log.error("Team names cannot be null, homeTeam is {}, awayTeam is {}",
-                    homeTeam.getName(), awayTeam.getName());
-            throw new IllegalArgumentException("Team names cannot be null");
-        }
-        if (homeTeam.getName().equals("") || awayTeam.getName().equals("")) {
-            log.error("Team names cannot be empty, homeTeam is {}, awayTeam is {}",
-                    homeTeam.getName(), awayTeam.getName());
-            throw new IllegalArgumentException("Team names cannot be empty");
-        }
-        final Match teamMatch = new Match(homeTeam, awayTeam);
+        try {
+            if ((homeTeam.getName() == null || awayTeam.getName() == null) || (homeTeam.getName().equals("") || awayTeam.getName().equals(""))) {
+                throw new IllegalArgumentException("Team names cannot be null or empty");
+            }
+            final Match teamMatch = new Match(homeTeam, awayTeam);
 
-        log.info("Creating match with {} as home team and {} as away team",
-                teamMatch.getHomeTeam().getName(),
-                teamMatch.getAwayTeam().getName());
+            log.info("Creating match with {} as home team and {} as away team",
+                    teamMatch.getHomeTeam().getName(),
+                    teamMatch.getAwayTeam().getName());
 
-        return this.matchSummary.add(teamMatch);
+            return this.matchSummary.add(teamMatch);
+        } catch (IllegalArgumentException e) {
+            log.error("Team names cannot be null or empty, homeTeam is {}, awayTeam is {}",
+                    homeTeam.getName(), awayTeam.getName());
+        }
+        return false;
     }
 
     public ArrayList<Match> summary() {
