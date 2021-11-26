@@ -26,21 +26,17 @@ public class TeamServiceTest {
     }
 
     @Test
-    public void whenNameIsNullIllegalArgumentExceptionIsThrown() {
-        Throwable thrown = catchThrowable(() ->
-                this.teamService.create(new Team(null, 5), new Team("France", 1)));
+    public void whenNameIsNullFalseIsReturned() {
+        boolean response = this.teamService.create(new Team(null, 5), new Team("France", 1));
 
-        assertThat(thrown).isInstanceOf(IllegalArgumentException.class);
-        assertThat(thrown).hasMessageContaining("Team names cannot be null");
+        assertThat(response).isFalse();
     }
 
     @Test
-    public void whenNameIsEmptyIllegalArgumentExceptionIsThrown() {
-        Throwable thrown = catchThrowable(() ->
-                this.teamService.create(new Team("Spain", 5), new Team("", 1)));
+    public void whenNameIsEmptyFalseIsReturned() {
+        boolean response = this.teamService.create(new Team("Spain", 5), new Team("", 1));
 
-        assertThat(thrown).isInstanceOf(IllegalArgumentException.class);
-        assertThat(thrown).hasMessageContaining("Team names cannot be empty");
+        assertThat(response).isFalse();
     }
 
     @Test
