@@ -3,9 +3,8 @@ package team.service;
 import lombok.extern.slf4j.Slf4j;
 import team.model.Match;
 import team.model.Team;
-import team.util.ValidateTeam;
 
-import java.util.*;
+import java.util.ArrayList;
 
 @Slf4j
 public class TeamService implements ITeamService {
