@@ -1,14 +1,13 @@
 package team.service;
 
-import lombok.extern.slf4j.Slf4j;
 import team.model.Match;
 import team.model.Team;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
-@Slf4j
 public class TeamService implements ITeamService {
-
+    Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
     final ArrayList<Match> arrayOfMatches = new ArrayList<>();
 
     final ICreateService createService = new CreateService();
@@ -18,8 +17,8 @@ public class TeamService implements ITeamService {
         try {
             return this.arrayOfMatches.add(this.createService.create(homeTeam, awayTeam));
         } catch (IllegalArgumentException e) {
-            log.error("Team names cannot be null or empty, homeTeam is {}, awayTeam is {}",
-                    homeTeam.getName(), awayTeam.getName());
+            log.severe("Team names cannot be null or empty, homeTeam is " + homeTeam.getName()
+                    + " awayTeam is " + awayTeam.getName());
         }
         return false;
     }

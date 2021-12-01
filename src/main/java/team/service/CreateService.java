@@ -4,7 +4,10 @@ import team.model.Match;
 import team.model.Team;
 import team.util.ValidateTeam;
 
+import java.util.logging.Logger;
+
 public class CreateService implements ICreateService {
+    Logger log = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     final ValidateTeam validateTeam = new ValidateTeam();
 
@@ -14,7 +17,7 @@ public class CreateService implements ICreateService {
 
         final Match teamMatch = new Match(homeTeam, awayTeam);
 
-        System.out.println("Creating match with " + teamMatch.getHomeTeam().getName()
+        log.info("Creating match with " + teamMatch.getHomeTeam().getName()
                 + " as home team and " + teamMatch.getAwayTeam().getName() + " as away team");
         return teamMatch;
     }
