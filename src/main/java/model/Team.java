@@ -1,4 +1,4 @@
-package team.model;
+package model;
 
 public record Team(String name, int score) {
 

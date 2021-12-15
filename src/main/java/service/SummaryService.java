@@ -1,8 +1,8 @@
-package team.service;
+package service;
 
 import lombok.extern.slf4j.Slf4j;
-import team.model.Match;
-import team.util.SummaryHelper;
+import model.Match;
+import util.SummaryHelper;
 
 import java.util.ArrayList;
 

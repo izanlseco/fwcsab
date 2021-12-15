@@ -1,6 +1,6 @@
-package team.service;
+package service;
 
-import team.model.Match;
+import model.Match;
 
 import java.util.ArrayList;
 

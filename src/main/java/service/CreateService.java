@@ -1,8 +1,8 @@
-package team.service;
+package service;
 
 import lombok.extern.slf4j.Slf4j;
-import team.model.Match;
-import team.model.Team;
+import model.Match;
+import model.Team;
 
 @Slf4j
 public class CreateService implements ICreateService {

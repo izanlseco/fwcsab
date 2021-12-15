@@ -1,7 +1,7 @@
-package team.service;
+package service;
 
-import team.model.Match;
-import team.model.Team;
+import model.Match;
+import model.Team;
 
 public interface ICreateService {
     Match create(Team homeTeam, Team awayTeam);

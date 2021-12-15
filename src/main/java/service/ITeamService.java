@@ -1,12 +1,12 @@
-package team.service;
+package service;
 
-import team.model.Match;
-import team.model.Team;
+import model.Match;
+import model.Team;
 
 import java.util.ArrayList;
 
 public interface ITeamService {
 
-    boolean create(Team homeTeam, Team awayTeam);
+    void create(Team homeTeam, Team awayTeam);
     ArrayList<Match> summary();
 }

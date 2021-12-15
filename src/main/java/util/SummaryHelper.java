@@ -1,7 +1,7 @@
-package team.util;
+package util;
 
 import lombok.extern.slf4j.Slf4j;
-import team.model.Match;
+import model.Match;
 
 import java.util.ArrayList;
 import java.util.Collections;
