@@ -28,15 +28,26 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <log4j>2.14.1</log4j>
+        <log4j>2.16.0</log4j>
         <lombok>1.18.22</lombok>
         <assertj>3.21.0</assertj>
         <mockito>4.1.0</mockito>
-        <junit.jupiter>5.8.1</junit.jupiter>
+        <junit.jupiter>5.8.2</junit.jupiter>
         <junit.platform>1.8.1</junit.platform>
     </properties>
 
     <dependencies>
+        <!-- Logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok}</version>
+        </dependency>
         <!-- Testing -->
         <dependency>
             <groupId>org.assertj</groupId>
